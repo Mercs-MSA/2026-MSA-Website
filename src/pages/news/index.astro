@@ -1,0 +1,19 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('news'))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<BaseLayout title="News — Mercs MSA">
+  <h1>News &amp; Announcements</h1>
+  <ul>
+    {posts.map((post) => (
+      <li>
+        <a href={`/news/${post.id}`}>{post.data.title}</a>
+        <span> — {post.data.date.toLocaleDateString()}</span>
+      </li>
+    ))}
+  </ul>
+</BaseLayout>

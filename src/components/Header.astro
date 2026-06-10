@@ -1,0 +1,23 @@
+---
+// Header — appears on every page through BaseLayout.
+// The nav links below are PLACEHOLDERS. The content student's sitemap decides
+// the real navigation; update this list to match it once that's settled.
+const links = [
+  { href: '/', label: 'Home' },
+  { href: '/about', label: 'About' },
+  { href: '/events', label: 'Events' },
+  { href: '/news', label: 'News' },
+  { href: '/contact', label: 'Contact' },
+];
+---
+
+<header class="site-header">
+  <a class="site-title" href="/">Mercs MSA</a>
+  <nav>
+    <ul>
+      {links.map((link) => (
+        <li><a href={link.href}>{link.label}</a></li>
+      ))}
+    </ul>
+  </nav>
+</header>

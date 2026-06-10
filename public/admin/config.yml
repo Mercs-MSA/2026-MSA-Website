@@ -1,0 +1,34 @@
+# Sveltia CMS configuration.
+# Sveltia is config-compatible with Decap CMS, so this file format is widely
+# documented under both names.
+
+backend:
+  name: github
+  repo: Mercs-MSA/2026-MSA-Website
+  branch: main
+  # OAuth handler — REQUIRED before anyone can log into the CMS on Cloudflare.
+  # Cloudflare Pages does NOT provide GitHub login for the CMS out of the box.
+  # Deploy the small "sveltia-cms-auth" Cloudflare Worker, then point to it here:
+  #   base_url: https://your-auth-worker.workers.dev
+  # See the README section "CMS authentication setup" for the full walkthrough.
+
+# PR-based editing: every CMS save opens a pull request, which Cloudflare Pages
+# turns into a deploy-preview URL so changes can be reviewed before going live.
+publish_mode: editorial_workflow
+
+# Where uploaded images are stored in the repo, and how pages reference them.
+media_folder: public/uploads
+public_folder: /uploads
+
+collections:
+  - name: news
+    label: News & Announcements
+    label_singular: News Post
+    folder: src/content/news
+    create: true
+    slug: '{{slug}}'
+    fields:
+      - { name: title, label: Title, widget: string }
+      - { name: date, label: Date, widget: datetime }
+      - { name: description, label: Summary, widget: text, required: false }
+      - { name: body, label: Body, widget: markdown }

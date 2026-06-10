@@ -1,0 +1,24 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection, render } from 'astro:content';
+
+// One page per news post. getStaticPaths tells Astro which URLs to build.
+export async function getStaticPaths() {
+  const posts = await getCollection('news');
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<BaseLayout title={`${post.data.title} — Mercs MSA`} description={post.data.description}>
+  <article>
+    <h1>{post.data.title}</h1>
+    <p><time datetime={post.data.date.toISOString()}>{post.data.date.toLocaleDateString()}</time></p>
+    <Content />
+  </article>
+</BaseLayout>

@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+// Pull the 3 most recent news items to preview on the homepage.
+const recent = (await getCollection('news'))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 3);
+---
+
+<BaseLayout title="Mercs MSA">
+  <h1>Welcome to Mercs MSA</h1>
+  <p>
+    This is a placeholder homepage. The design and content students will shape
+    what actually lives here — this scaffold just proves the pieces fit together.
+  </p>
+
+  <section>
+    <h2>Latest News</h2>
+    <ul>
+      {recent.map((post) => (
+        <li>
+          <a href={`/news/${post.id}`}>{post.data.title}</a>
+          <span> — {post.data.date.toLocaleDateString()}</span>
+        </li>
+      ))}
+    </ul>
+  </section>
+</BaseLayout>
