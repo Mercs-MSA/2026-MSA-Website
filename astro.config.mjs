@@ -5,5 +5,5 @@ import { defineConfig } from 'astro/config';
 export default defineConfig({
   // TODO: set this to the real production domain before launch.
   // It's used for canonical URLs, sitemaps, and RSS. A placeholder is fine for now.
-  site: 'https://example.org',
+  site: 'https://2026-msa-website.pages.dev',
 });
