@@ -99,10 +99,9 @@ Node is too old).
 
 ## Accounts and access (who to ask — never passwords)
 
-- **GitHub org (`Mercs-MSA`)** — controls the code and who can edit. A coach/org
-  holds owner access.
-- **Cloudflare** — hosting and DNS. On an org-controlled account, not a personal one.
-- **Domain registrar (Bluehost)** — domain registration. Renews ~$12–15/year.
+- **GitHub org (`Mercs-MSA`)** — controls the code and who can edit. All students have access. Coaches with administrative access: Armaan, Ashish, Charlie, Dan, Derek, Steve.
+- **Cloudflare** — hosting and DNS. On org-controlled account software@mckinneysteamacademy.org. Coaches with shared org email access: Charlie, Dan, Derek. 2FA/MFA security code held by Derek.
+- **Domain registrar (Bluehost)** — domain registration. Renews ~$12–15/year. Coaches with shared org account access: Charlie, Derek, Jodi. 2FA/MFA security code held by Jodi.
 
 Owner-level access to all three is held by the organization/coach, never by a
 single student's personal account — so the site survives turnover.
